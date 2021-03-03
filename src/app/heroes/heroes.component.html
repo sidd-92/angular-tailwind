@@ -1,1 +1,22 @@
-<p>heroes works!</p>
+<table class="border w-full text-center">
+  <thead class="bg-gray-500 text-white">
+    <th class="border w-1/5">ID</th>
+    <th class="border">Name</th>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let hero of heroes; let i = index"
+      class="border transition duration-200 hover:bg-gray-200"
+      (click)="getHeroDetail(hero)"
+    >
+      <td class="border">
+        {{ hero.id }}
+      </td>
+      <td class="border">
+        {{ hero.name }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div>{{ heroDetail.name }} {{ heroDetail.id }}</div>
