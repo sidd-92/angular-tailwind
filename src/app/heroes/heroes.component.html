@@ -7,6 +7,7 @@
     <tr
       *ngFor="let hero of heroes; let i = index"
       class="border transition duration-200 hover:bg-gray-200"
+      [class.bg-gray-200]="heroDetail.name == hero.name"
       (click)="getHeroDetail(hero)"
     >
       <td class="border">
@@ -19,4 +20,14 @@
   </tbody>
 </table>
 
-<div>{{ heroDetail.name }} {{ heroDetail.id }}</div>
+<div *ngIf="heroDetail.name" class="mt-10 bg-gray-100 p-4">
+  <div class="text-2xl font-bold pb-4">Edit The Selected Hero</div>
+  <div class="flex flex-col">
+    <div class="mr-4">Hero Name</div>
+    <input
+      type="text"
+      [(ngModel)]="heroDetail.name"
+      class="border-2 border-blue-100 rounded-lg pl-1"
+    />
+  </div>
+</div>
